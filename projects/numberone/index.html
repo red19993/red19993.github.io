@@ -24,8 +24,8 @@
         position: fixed;
         right: 0;
         bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
+        width: 100%;
+        height: 100%;
       }
 
       .content {
@@ -173,10 +173,11 @@
       Your browser does not support the audio element.
     </audio>
 
-    <div class="content">
+    <div class="content container">
       <div class="d-flex justify-content-center your-element-selector">
-        <h1 class="glow">Feliz 21 cumpleaños Marina&nbsp;</h1>
-        <div class="center"></div>
+        <h1 id="titulo" class="glow">Feliz 21 cumpleaños Marina&nbsp;</h1>
+      </div>
+      <div class="d-flex justify-content-center your-element-selector">
         <button id="myBtn" onclick="myFunction()">Play</button>
       </div>
     </div>
@@ -185,6 +186,7 @@
     <script>
       var video = document.getElementById("myVideo");
       var audio = document.getElementById("myAudio");
+      var titulo = document.getElementById("titulo");
       var btn = document.getElementById("myBtn");
 
       function myFunction() {
@@ -192,10 +194,12 @@
           video.play();
           audio.play();
           btn.innerHTML = "Pause";
+          titulo.hidden = true;
         } else {
           video.pause();
           audio.pause();
           btn.innerHTML = "Play";
+          titulo.hidden = false;
         }
       }
     </script>
